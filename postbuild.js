@@ -36,12 +36,26 @@ if (fs.existsSync(serverPath)) {
 
 // 3. Generate index.html
 const finalAssetsPath = path.join(distPath, 'assets');
+if (!fs.existsSync(finalAssetsPath)) {
+  console.error('Assets directory not found in dist!');
+  process.exit(1);
+}
+
 const assetFiles = fs.readdirSync(finalAssetsPath);
-const mainJs = assetFiles.find(f => f.startsWith('index-') && f.endsWith('.js'));
-const mainCss = assetFiles.find(f => f.startsWith('styles-') && f.endsWith('.css'));
+
+// Find the LARGEST JS bundle (the main entry) and LARGEST CSS file
+const mainJs = assetFiles
+  .filter(f => f.startsWith('index-') && f.endsWith('.js'))
+  .map(f => ({ name: f, size: fs.statSync(path.join(finalAssetsPath, f)).size }))
+  .sort((a, b) => b.size - a.size)[0]?.name;
+
+const mainCss = assetFiles
+  .filter(f => f.startsWith('styles-') && f.endsWith('.css'))
+  .map(f => ({ name: f, size: fs.statSync(path.join(finalAssetsPath, f)).size }))
+  .sort((a, b) => b.size - a.size)[0]?.name;
 
 if (!mainJs) {
-  console.error('Could not find main JS bundle!');
+  console.error('Could not find main JS bundle (index-*.js)!');
   process.exit(1);
 }
 
@@ -53,6 +67,14 @@ const htmlContent = `<!DOCTYPE html>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>M.A.T. Furniture Showroom</title>
     ${mainCss ? `<link rel="stylesheet" href="/assets/${mainCss}">` : ''}
+    <script>
+      window.onerror = function(msg, url, line, col, error) {
+        console.error("Global error caught:", msg, "at", url, ":", line);
+      };
+      window.onunhandledrejection = function(event) {
+        console.error("Unhandled promise rejection:", event.reason);
+      };
+    </script>
   </head>
   <body>
     <div id="root"></div>
