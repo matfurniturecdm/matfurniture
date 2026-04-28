@@ -78,7 +78,7 @@ function AboutPage() {
               className="glass-panel p-10 md:p-16 rounded-2xl animate-float relative"
             >
               <p className="text-lg md:text-xl text-foreground leading-relaxed text-center mb-8">
-                Established in <strong>2010 as a trusted wholesaler</strong>, M.A.T.Furniture has spent over a decade supplying premium furniture to more than <strong>100+ retail showrooms</strong> across the region. In <strong>2025</strong>, we proudly launched our own retail showrooms to bring our expertly crafted pieces directly to you.
+                Established in <strong>2020 as a trusted wholesaler</strong>, M.A.T.Furniture has spent over a decade supplying premium furniture to more than <strong>100+ retail showrooms</strong> across the region. In <strong>2025</strong>, we proudly launched our own retail showrooms to bring our expertly crafted pieces directly to you.
               </p>
               
               <div className="grid md:grid-cols-2 gap-8 text-left mt-12">
@@ -105,7 +105,7 @@ function AboutPage() {
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="mt-1 text-accent"><CheckCircle size={14} /></span>
-                      <span>Expertise in premium woods: <strong>Teak, Mahakani, and Acacia</strong>.</span>
+                      <span>Expertise in premium woods: <strong>Teak, Mahogany, and Acacia</strong>.</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="mt-1 text-accent"><CheckCircle size={14} /></span>
