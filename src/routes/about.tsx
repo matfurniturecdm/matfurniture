@@ -6,6 +6,7 @@ import {
   Star,
   CheckCircle,
   Package,
+  CreditCard,
 } from "lucide-react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
@@ -138,9 +139,14 @@ function AboutPage() {
                     </div>
                   ))}
                 </div>
-                <p className="mt-12 text-sm uppercase tracking-widest text-accent font-medium border border-accent/30 inline-block px-6 py-2 rounded-full bg-accent/5">
-                  Standard Company 1-Year Warranty on All Products
-                </p>
+                <div className="mt-12 flex flex-col items-center gap-4">
+                  <p className="text-sm uppercase tracking-widest text-accent font-medium border border-accent/30 inline-block px-6 py-2 rounded-full bg-accent/5">
+                    Standard Company 1-Year Warranty on All Products
+                  </p>
+                  <p className="text-sm uppercase tracking-widest text-accent font-medium border border-accent/30 inline-flex items-center gap-2 px-6 py-2 rounded-full bg-accent/5">
+                    <CreditCard size={14} /> Easy EMI Options Available
+                  </p>
+                </div>
               </div>
             </motion.div>
           </div>
@@ -202,6 +208,7 @@ function AboutPage() {
                 { icon: Star, title: "Affordable Pricing", desc: "Premium luxury at honest prices." },
                 { icon: ShieldCheck, title: "Quality Materials", desc: "Built to last for generations." },
                 { icon: Package, title: "Wide Variety", desc: "Something for every home style." },
+                { icon: CreditCard, title: "EMI Facility", desc: "Flexible payment options available." },
                 { icon: CheckCircle, title: "Customer Satisfaction", desc: "Your happiness is our priority." },
               ].map((feature, i) => (
                 <motion.div

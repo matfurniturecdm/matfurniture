@@ -1,6 +1,6 @@
 import { createFileRoute, Link, useRouter } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { ArrowLeft, ChevronRight, MessageCircle } from "lucide-react";
+import { ArrowLeft, ChevronRight, MessageCircle, CreditCard } from "lucide-react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { WhatsAppFab } from "@/components/WhatsAppFab";
@@ -185,9 +185,14 @@ function ProductDetail() {
 
               <h1 className="mt-3 font-display text-4xl md:text-5xl">{product.name}</h1>
               {product.price != null && (
-                <p className="mt-4 text-2xl text-foreground/80">
-                  ₹ {product.price.toLocaleString("en-IN")}
-                </p>
+                <div className="mt-4 flex items-end gap-4">
+                  <p className="text-2xl text-foreground/80">
+                    ₹ {product.price.toLocaleString("en-IN")}
+                  </p>
+                  <span className="mb-1 inline-flex items-center gap-1.5 rounded-full bg-accent/10 border border-accent/20 px-3 py-1 text-[10px] uppercase tracking-widest font-bold text-accent">
+                    <CreditCard size={12} /> EMI Available
+                  </span>
+                </div>
               )}
               <div className="my-6 gold-divider" />
               <p className="text-base leading-relaxed text-foreground/80 whitespace-pre-line">
@@ -199,14 +204,19 @@ function ProductDetail() {
                   <MessageCircle size={16} /> Sold Out
                 </div>
               ) : (
-                <a
-                  href={buildWhatsAppUrl(`Hi! I want to get a quote for ${product.name}.\n\nURL: https://matfurniture.in/product/${product.id}`)}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-10 inline-flex items-center gap-2 rounded-full bg-primary px-8 py-4 text-sm font-medium text-primary-foreground hover:bg-primary/90 transition shadow-soft"
-                >
-                  <MessageCircle size={16} /> Get Quote
-                </a>
+                <div className="mt-10 flex flex-col gap-3">
+                  <a
+                    href={buildWhatsAppUrl(`Hi! I want to get a quote for ${product.name}.\n\nURL: https://matfurniture.in/product/${product.id}`)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-8 py-4 text-sm font-medium text-primary-foreground hover:bg-primary/90 transition shadow-soft"
+                  >
+                    <MessageCircle size={16} /> Get Quote
+                  </a>
+                  <p className="text-xs text-muted-foreground flex items-center gap-1.5 px-4">
+                    <CreditCard size={12} className="text-accent" /> Flexible EMI options available on this product.
+                  </p>
+                </div>
               )}
 
             </div>

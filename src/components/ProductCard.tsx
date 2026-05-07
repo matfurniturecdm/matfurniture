@@ -32,7 +32,9 @@ export function ProductCard({ product }: { product: Product }) {
               Sold Out
             </div>
           )}
-
+          <div className="bg-accent/90 backdrop-blur px-3 py-1 rounded-full text-[10px] uppercase tracking-widest font-bold text-charcoal shadow-gold">
+            EMI Available
+          </div>
         </div>
       </div>
       <div className="p-5 flex flex-col justify-between flex-1">

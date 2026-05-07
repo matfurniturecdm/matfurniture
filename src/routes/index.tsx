@@ -9,6 +9,7 @@ import {
   Star,
   MapPin,
   MessageCircle,
+  CreditCard,
 } from "lucide-react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
@@ -99,6 +100,11 @@ function Hero() {
           <span className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.3em] text-accent">
             <span className="h-px w-8 bg-accent" /> Chidambaram, Kattumannarkoil, Tamil Nadu
           </span>
+          <div className="mt-8 flex items-center gap-2">
+            <span className="inline-flex items-center gap-2.5 rounded-full bg-gold-grad px-6 py-2.5 text-xs md:text-sm uppercase tracking-[0.25em] font-bold text-charcoal shadow-gold animate-pulse-slow">
+              <CreditCard size={18} /> EMI Available
+            </span>
+          </div>
           <h1 className="mt-6 font-display text-5xl md:text-7xl leading-[1.05] text-balance">
             M.A.T.<span className="text-accent">Furniture</span>
           </h1>
@@ -260,7 +266,7 @@ function About() {
         </h2>
         <div className="mx-auto my-8 gold-divider" />
         <p className="text-lg text-muted-foreground leading-relaxed max-w-3xl mx-auto mb-10">
-          Established in 2010 as a trusted wholesaler and now a premier retail destination, M.A.T.Furniture brings you expertly crafted pieces directly from our own manufacturing units in Kerala. With massive showrooms in Chidambaram and Kattumannarkoil, we provide premium quality wooden cots, sofas, and dining sets — all backed by our standard 1-year warranty.
+          Established in 2020 as a trusted wholesaler and now a premier retail destination, M.A.T.Furniture brings you expertly crafted pieces directly from our own manufacturing units in Kerala. With massive showrooms in Chidambaram and Kattumannarkoil, we provide premium quality wooden cots, sofas, and dining sets — all backed by our standard 1-year warranty.
 
         </p>
         <Link
@@ -363,7 +369,7 @@ function Featured() {
 const reasons = [
   { icon: Sparkles, title: "Premium Quality Materials", text: "Hand-picked woods and finishes that last for generations." },
   { icon: ShieldCheck, title: "Trusted by Locals", text: "Loved by families across Chidambaram and beyond." },
-  { icon: Truck, title: "Wide Collection Range", text: "From cots to pooja units — everything for your home." },
+  { icon: CreditCard, title: "Easy EMI Options", text: "Flexible monthly payment plans to suit your budget." },
   { icon: Star, title: "Affordable Pricing", text: "Luxury you can afford, without compromise." },
 ];
 

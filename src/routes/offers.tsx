@@ -74,6 +74,10 @@ function OffersPage() {
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Explore our currently active special deals and festive offers.
               Contact us to claim these discounts before they expire!
+              <br />
+              <span className="text-sm font-medium text-accent mt-2 block">
+                Easy EMI options available on all premium furniture.
+              </span>
             </p>
           </div>
         </section>
