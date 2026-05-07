@@ -46,7 +46,11 @@ function AboutPage() {
           <motion.div
             className="absolute bottom-10 right-[10%] w-80 h-80 bg-primary/5 rounded-full blur-3xl animate-float-delayed"
           />
+<<<<<<< HEAD
           
+=======
+
+>>>>>>> master
           <div className="mx-auto max-w-7xl px-6 text-center">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -80,7 +84,11 @@ function AboutPage() {
               <p className="text-lg md:text-xl text-foreground leading-relaxed text-center mb-8">
                 Established in <strong>2020 as a trusted wholesaler</strong>, M.A.T.Furniture has spent over a decade supplying premium furniture to more than <strong>100+ retail showrooms</strong> across the region. In <strong>2025</strong>, we proudly launched our own retail showrooms to bring our expertly crafted pieces directly to you.
               </p>
+<<<<<<< HEAD
               
+=======
+
+>>>>>>> master
               <div className="grid md:grid-cols-2 gap-8 text-left mt-12">
                 <div className="bg-background/50 p-6 rounded-xl border border-ivory/10">
                   <h3 className="text-xl font-display text-accent mb-4">Our Showrooms</h3>
@@ -105,7 +113,11 @@ function AboutPage() {
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="mt-1 text-accent"><CheckCircle size={14} /></span>
+<<<<<<< HEAD
                       <span>Expertise in premium woods: <strong>Teak, Mahogany, and Acacia</strong>.</span>
+=======
+                      <span>Expertise in premium woods: <strong>Teak, Mahakani, and Acacia</strong>.</span>
+>>>>>>> master
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="mt-1 text-accent"><CheckCircle size={14} /></span>
@@ -153,7 +165,11 @@ function AboutPage() {
               </span>
               <h2 className="mt-3 font-display text-4xl md:text-5xl">What We Offer</h2>
             </div>
+<<<<<<< HEAD
             
+=======
+
+>>>>>>> master
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {[
                 { title: "Wooden Furniture", img: catCot },
@@ -232,7 +248,11 @@ function AboutPage() {
             />
             <div className="absolute inset-0 bg-charcoal/80 backdrop-blur-sm" />
           </div>
+<<<<<<< HEAD
           
+=======
+
+>>>>>>> master
           <div className="mx-auto max-w-3xl px-6 text-center">
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}

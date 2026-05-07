@@ -1,5 +1,9 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
+<<<<<<< HEAD
 import { useEffect, useMemo, useState } from "react";
+=======
+import { useEffect, useMemo, useState, useRef } from "react";
+>>>>>>> master
 import { Search } from "lucide-react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
@@ -33,6 +37,11 @@ function ProductsPage() {
   const { category = "", q = "" } = Route.useSearch();
   const navigate = useNavigate({ from: "/products" });
   const [items, setItems] = useState<Product[] | null>(null);
+<<<<<<< HEAD
+=======
+  const resultsRef = useRef<HTMLDivElement>(null);
+  const isFirstRender = useRef(true);
+>>>>>>> master
 
   useEffect(() => {
     listProducts()
@@ -40,6 +49,30 @@ function ProductsPage() {
       .catch(() => setItems([]));
   }, []);
 
+<<<<<<< HEAD
+=======
+  useEffect(() => {
+    if (isFirstRender.current) {
+      isFirstRender.current = false;
+      return;
+    }
+
+    if (category) {
+      const element = resultsRef.current;
+      if (element) {
+        const headerOffset = 100;
+        const elementPosition = element.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth",
+        });
+      }
+    }
+  }, [category]);
+
+>>>>>>> master
   const filtered = useMemo(() => {
     if (!items) return null;
     return items.filter((p) => {
@@ -81,6 +114,7 @@ function ProductsPage() {
           </div>
         </section>
 
+<<<<<<< HEAD
         <section className="py-10">
           <div className="mx-auto max-w-7xl px-6">
             <div className="flex flex-wrap gap-2 justify-center">
@@ -99,6 +133,32 @@ function ProductsPage() {
                   {c}
                 </Pill>
               ))}
+=======
+        <section className="py-10" ref={resultsRef}>
+          <div className="mx-auto max-w-7xl px-6">
+            <div className="relative">
+              {/* Mobile: Horizontal scroll container | Desktop: Flex wrap */}
+              <div className="flex overflow-x-auto scrollbar-hide snap-x snap-mandatory gap-2 pb-4 px-4 -mx-4 md:flex-wrap md:justify-center md:pb-0 md:px-0 md:mx-0">
+                <div className="snap-start shrink-0 first:ml-auto last:mr-auto md:shrink">
+                  <Pill
+                    active={!category}
+                    onClick={() => navigate({ search: (p: Search) => ({ ...p, category: "" }) })}
+                  >
+                    All
+                  </Pill>
+                </div>
+                {CATEGORIES.map((c) => (
+                  <div key={c} className="snap-start shrink-0 md:shrink">
+                    <Pill
+                      active={category === c}
+                      onClick={() => navigate({ search: (p: Search) => ({ ...p, category: c }) })}
+                    >
+                      {c}
+                    </Pill>
+                  </div>
+                ))}
+              </div>
+>>>>>>> master
             </div>
 
             <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">

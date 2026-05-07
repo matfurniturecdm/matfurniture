@@ -9,6 +9,10 @@ import {
   orderBy,
   query,
   serverTimestamp,
+<<<<<<< HEAD
+=======
+  where,
+>>>>>>> master
   limit as fbLimit,
 } from "firebase/firestore";
 import { getFirebase, isFirebaseConfigured } from "./firebase";
@@ -21,6 +25,10 @@ export interface Product {
   price: number | null;
   images: string[];
   isFeatured?: boolean;
+<<<<<<< HEAD
+=======
+  isSoldOut?: boolean;
+>>>>>>> master
   createdAt?: number;
 }
 
@@ -46,7 +54,12 @@ export async function listProducts(): Promise<Product[]> {
   if (!isFirebaseConfigured) return [];
   const { db } = getFirebase();
   if (!db) return [];
+<<<<<<< HEAD
   const q = query(collection(db, COL), orderBy("createdAt", "desc"));
+=======
+  // Add a limit to prevent excessive reads if the catalog grows huge
+  const q = query(collection(db, COL), orderBy("createdAt", "desc"), fbLimit(100));
+>>>>>>> master
   const snap = await getDocs(q);
   return snap.docs.map((d) => ({ id: d.id, ...(d.data() as Omit<Product, "id">) }));
 }
@@ -55,18 +68,42 @@ export async function listFeatured(n = 6): Promise<Product[]> {
   if (!isFirebaseConfigured) return [];
   const { db } = getFirebase();
   if (!db) return [];
+<<<<<<< HEAD
   const q = query(collection(db, COL), orderBy("createdAt", "desc"));
   const snap = await getDocs(q);
   const all = snap.docs.map((d) => ({ id: d.id, ...(d.data() as Omit<Product, "id">) }));
   // Show manually featured products first; fall back to latest if none are featured
   const featured = all.filter((p) => p.isFeatured);
   return featured.length > 0 ? featured.slice(0, n) : all.slice(0, n);
+=======
+  
+  // Try fetching specifically featured products first
+  const qFeatured = query(
+    collection(db, COL), 
+    where("isFeatured", "==", true),
+    orderBy("createdAt", "desc"),
+    fbLimit(n)
+  );
+  
+  try {
+    const snap = await getDocs(qFeatured);
+    if (!snap.empty) {
+      return snap.docs.map((d) => ({ id: d.id, ...(d.data() as Omit<Product, "id">) }));
+    }
+  } catch (e) {
+    console.warn("Featured query failed (might need index):", e);
+  }
+
+  // Fallback to latest products if none are featured or query fails
+  return listProducts().then(all => all.slice(0, n));
+>>>>>>> master
 }
 
 export async function listRelated(category: string, excludeId: string, n = 3): Promise<Product[]> {
   if (!isFirebaseConfigured) return [];
   const { db } = getFirebase();
   if (!db) return [];
+<<<<<<< HEAD
   // Fetch a few extra to allow filtering out the current product
   const q = query(collection(db, COL), orderBy("createdAt", "desc"), fbLimit(n + 1));
   const snap = await getDocs(q);
@@ -74,6 +111,30 @@ export async function listRelated(category: string, excludeId: string, n = 3): P
     .map((d) => ({ id: d.id, ...(d.data() as Omit<Product, "id">) }))
     .filter((p) => p.id !== excludeId && p.category === category)
     .slice(0, n);
+=======
+  
+  // Filter by category on server side
+  const q = query(
+    collection(db, COL), 
+    where("category", "==", category),
+    orderBy("createdAt", "desc"), 
+    fbLimit(n + 1)
+  );
+  
+  try {
+    const snap = await getDocs(q);
+    return snap.docs
+      .map((d) => ({ id: d.id, ...(d.data() as Omit<Product, "id">) }))
+      .filter((p) => p.id !== excludeId)
+      .slice(0, n);
+  } catch (e) {
+    console.warn("Related query failed (might need index):", e);
+    // Fallback to just latest
+    return listProducts().then(all => 
+      all.filter(p => p.id !== excludeId && p.category === category).slice(0, n)
+    );
+  }
+>>>>>>> master
 }
 
 export async function getProduct(id: string): Promise<Product | null> {

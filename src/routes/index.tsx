@@ -19,6 +19,10 @@ import { ProductCard, ProductCardSkeleton } from "@/components/ProductCard";
 import { CATEGORIES, listFeatured, type Product } from "@/lib/products";
 import { listFeaturedGallery, type GalleryImage } from "@/lib/gallery";
 import { listFeaturedOffers, type OfferImage } from "@/lib/offers";
+<<<<<<< HEAD
+=======
+import { listTestimonials, DEFAULT_TESTIMONIALS, type Testimonial } from "@/lib/testimonials";
+>>>>>>> master
 import { buildWhatsAppUrl } from "@/lib/firebase";
 import { optimizeUrl } from "@/lib/cloudinary";
 
@@ -258,7 +262,11 @@ function About() {
         </h2>
         <div className="mx-auto my-8 gold-divider" />
         <p className="text-lg text-muted-foreground leading-relaxed max-w-3xl mx-auto mb-10">
+<<<<<<< HEAD
           Established in 2010 as a trusted wholesaler and now a premier retail destination, M.A.T.Furniture brings you expertly crafted pieces directly from our own manufacturing units in Kerala. With massive showrooms in Chidambaram and Kattumannarkoil, we provide premium quality wooden cots, sofas, and dining sets — all backed by our standard 1-year warranty.
+=======
+          Established in 2020 as a trusted wholesaler and now a premier retail destination, M.A.T.Furniture brings you expertly crafted pieces directly from our own manufacturing units in Kerala. With massive showrooms in Chidambaram and Kattumannarkoil, we provide premium quality wooden cots, sofas, and dining sets — all backed by our standard 1-year warranty.
+>>>>>>> master
         </p>
         <Link
           to="/about"
@@ -389,6 +397,7 @@ function WhyUs() {
   );
 }
 
+<<<<<<< HEAD
 const testimonials = [
   { name: "NETHAJI", text: "Good Shop massive collectionsAttractive price I will give 5 out of 5 rating" },
   { name: "SADIQ PASHA", text: "Good quality, affordable price, nice co operation with staff" },
@@ -396,6 +405,27 @@ const testimonials = [
 ];
 
 function Testimonials() {
+=======
+function Testimonials() {
+  const [items, setItems] = useState<Testimonial[] | null>(null);
+
+  useEffect(() => {
+    listTestimonials()
+      .then((data) => {
+        // If no dynamic testimonials, show the default ones
+        if (data.length === 0) {
+          setItems(DEFAULT_TESTIMONIALS.map((t, i) => ({ ...t, id: `default-${i}` })));
+        } else {
+          setItems(data);
+        }
+      })
+      .catch(() => {
+        // Fallback on permission error
+        setItems(DEFAULT_TESTIMONIALS.map((t, i) => ({ ...t, id: `default-${i}` })));
+      });
+  }, []);
+
+>>>>>>> master
   return (
     <section className="py-24">
       <div className="mx-auto max-w-7xl px-6">
@@ -405,6 +435,7 @@ function Testimonials() {
           <div className="mx-auto my-6 gold-divider" />
         </div>
         <div className="mt-12 grid md:grid-cols-3 gap-6">
+<<<<<<< HEAD
           {testimonials.map((t) => (
             <figure key={t.name} className="rounded-lg bg-card p-8 shadow-card border border-border hover:scale-102 transition-transform duration-200">
               <div className="flex gap-1 text-accent">
@@ -420,6 +451,34 @@ function Testimonials() {
               </figcaption>
             </figure>
           ))}
+=======
+          {items === null ? (
+            Array.from({ length: 3 }).map((_, i) => (
+              <div key={i} className="rounded-lg bg-card p-8 shadow-card border border-border animate-pulse h-48" />
+            ))
+          ) : (
+            items.map((t) => (
+              <figure key={t.id} className="rounded-lg bg-card p-8 shadow-card border border-border hover:scale-102 transition-transform duration-200">
+                <div className="flex gap-1 text-accent">
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <Star
+                      key={i}
+                      size={14}
+                      fill={i < t.rating ? "currentColor" : "none"}
+                      className={i < t.rating ? "" : "text-ivory/20"}
+                    />
+                  ))}
+                </div>
+                <blockquote className="mt-4 font-display text-xl leading-snug text-foreground">
+                  “{t.content}”
+                </blockquote>
+                <figcaption className="mt-5 text-sm text-muted-foreground uppercase tracking-widest">
+                  — {t.name}
+                </figcaption>
+              </figure>
+            ))
+          )}
+>>>>>>> master
         </div>
       </div>
     </section>

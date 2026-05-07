@@ -16,6 +16,10 @@ import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ProductIdRouteImport } from './routes/product.$id'
+<<<<<<< HEAD
+=======
+import { Route as AdminTestimonialsRouteImport } from './routes/admin.testimonials'
+>>>>>>> master
 import { Route as AdminOffersRouteImport } from './routes/admin.offers'
 import { Route as AdminLoginRouteImport } from './routes/admin.login'
 import { Route as AdminGalleryRouteImport } from './routes/admin.gallery'
@@ -58,6 +62,14 @@ const ProductIdRoute = ProductIdRouteImport.update({
   path: '/product/$id',
   getParentRoute: () => rootRouteImport,
 } as any)
+<<<<<<< HEAD
+=======
+const AdminTestimonialsRoute = AdminTestimonialsRouteImport.update({
+  id: '/admin/testimonials',
+  path: '/admin/testimonials',
+  getParentRoute: () => rootRouteImport,
+} as any)
+>>>>>>> master
 const AdminOffersRoute = AdminOffersRouteImport.update({
   id: '/admin/offers',
   path: '/admin/offers',
@@ -102,6 +114,10 @@ export interface FileRoutesByFullPath {
   '/admin/gallery': typeof AdminGalleryRoute
   '/admin/login': typeof AdminLoginRoute
   '/admin/offers': typeof AdminOffersRoute
+<<<<<<< HEAD
+=======
+  '/admin/testimonials': typeof AdminTestimonialsRoute
+>>>>>>> master
   '/product/$id': typeof ProductIdRoute
 }
 export interface FileRoutesByTo {
@@ -117,6 +133,10 @@ export interface FileRoutesByTo {
   '/admin/gallery': typeof AdminGalleryRoute
   '/admin/login': typeof AdminLoginRoute
   '/admin/offers': typeof AdminOffersRoute
+<<<<<<< HEAD
+=======
+  '/admin/testimonials': typeof AdminTestimonialsRoute
+>>>>>>> master
   '/product/$id': typeof ProductIdRoute
 }
 export interface FileRoutesById {
@@ -133,6 +153,10 @@ export interface FileRoutesById {
   '/admin/gallery': typeof AdminGalleryRoute
   '/admin/login': typeof AdminLoginRoute
   '/admin/offers': typeof AdminOffersRoute
+<<<<<<< HEAD
+=======
+  '/admin/testimonials': typeof AdminTestimonialsRoute
+>>>>>>> master
   '/product/$id': typeof ProductIdRoute
 }
 export interface FileRouteTypes {
@@ -150,6 +174,10 @@ export interface FileRouteTypes {
     | '/admin/gallery'
     | '/admin/login'
     | '/admin/offers'
+<<<<<<< HEAD
+=======
+    | '/admin/testimonials'
+>>>>>>> master
     | '/product/$id'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -165,6 +193,10 @@ export interface FileRouteTypes {
     | '/admin/gallery'
     | '/admin/login'
     | '/admin/offers'
+<<<<<<< HEAD
+=======
+    | '/admin/testimonials'
+>>>>>>> master
     | '/product/$id'
   id:
     | '__root__'
@@ -180,6 +212,10 @@ export interface FileRouteTypes {
     | '/admin/gallery'
     | '/admin/login'
     | '/admin/offers'
+<<<<<<< HEAD
+=======
+    | '/admin/testimonials'
+>>>>>>> master
     | '/product/$id'
   fileRoutesById: FileRoutesById
 }
@@ -196,6 +232,10 @@ export interface RootRouteChildren {
   AdminGalleryRoute: typeof AdminGalleryRoute
   AdminLoginRoute: typeof AdminLoginRoute
   AdminOffersRoute: typeof AdminOffersRoute
+<<<<<<< HEAD
+=======
+  AdminTestimonialsRoute: typeof AdminTestimonialsRoute
+>>>>>>> master
   ProductIdRoute: typeof ProductIdRoute
 }
 
@@ -250,6 +290,16 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProductIdRouteImport
       parentRoute: typeof rootRouteImport
     }
+<<<<<<< HEAD
+=======
+    '/admin/testimonials': {
+      id: '/admin/testimonials'
+      path: '/admin/testimonials'
+      fullPath: '/admin/testimonials'
+      preLoaderRoute: typeof AdminTestimonialsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+>>>>>>> master
     '/admin/offers': {
       id: '/admin/offers'
       path: '/admin/offers'
@@ -308,11 +358,16 @@ const rootRouteChildren: RootRouteChildren = {
   AdminGalleryRoute: AdminGalleryRoute,
   AdminLoginRoute: AdminLoginRoute,
   AdminOffersRoute: AdminOffersRoute,
+<<<<<<< HEAD
+=======
+  AdminTestimonialsRoute: AdminTestimonialsRoute,
+>>>>>>> master
   ProductIdRoute: ProductIdRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+<<<<<<< HEAD
 
 import type { getRouter } from './router.tsx'
 import type { createStart } from '@tanstack/react-start'
@@ -322,3 +377,5 @@ declare module '@tanstack/react-start' {
     router: Awaited<ReturnType<typeof getRouter>>
   }
 }
+=======
+>>>>>>> master

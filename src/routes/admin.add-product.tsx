@@ -32,6 +32,10 @@ function AddProduct() {
   const [price, setPrice] = useState<string>("");
   const [images, setImages] = useState<string[]>([]);
   const [isFeatured, setIsFeatured] = useState(false);
+<<<<<<< HEAD
+=======
+  const [isSoldOut, setIsSoldOut] = useState(false);
+>>>>>>> master
   const [uploading, setUploading] = useState(false);
   const [saving, setSaving] = useState(false);
   const [loading, setLoading] = useState(isEdit);
@@ -51,6 +55,10 @@ function AddProduct() {
         setPrice(p.price != null ? String(p.price) : "");
         setImages(p.images ?? []);
         setIsFeatured(p.isFeatured ?? false);
+<<<<<<< HEAD
+=======
+        setIsSoldOut(p.isSoldOut ?? false);
+>>>>>>> master
       })
       .catch((e) => toast.error(e.message))
       .finally(() => setLoading(false));
@@ -93,6 +101,10 @@ function AddProduct() {
         price: price ? Number(price) : null,
         images,
         isFeatured,
+<<<<<<< HEAD
+=======
+        isSoldOut,
+>>>>>>> master
       };
       if (isEdit && id) {
         await updateProduct(id, payload);
@@ -185,6 +197,32 @@ function AddProduct() {
               {isFeatured ? "Yes" : "No"}
             </span>
           </div>
+<<<<<<< HEAD
+=======
+
+          {/* Sold Out toggle */}
+          <div className="flex items-center gap-4">
+            <span className="text-xs uppercase tracking-widest text-ivory/70">Sold Out</span>
+            <button
+              type="button"
+              role="switch"
+              aria-checked={isSoldOut}
+              onClick={() => setIsSoldOut(!isSoldOut)}
+              className={`relative inline-flex h-7 w-12 shrink-0 cursor-pointer items-center rounded-full transition-colors duration-300 ${
+                isSoldOut ? "bg-destructive" : "bg-ivory/20"
+              }`}
+            >
+              <span
+                className={`inline-block h-5 w-5 rounded-full bg-white shadow-md transition-transform duration-300 ${
+                  isSoldOut ? "translate-x-6" : "translate-x-1"
+                }`}
+              />
+            </button>
+            <span className={`text-sm ${isSoldOut ? "text-destructive" : "text-ivory/50"}`}>
+              {isSoldOut ? "Yes" : "No"}
+            </span>
+          </div>
+>>>>>>> master
         </div>
 
         <div className="space-y-6">

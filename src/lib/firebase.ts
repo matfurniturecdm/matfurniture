@@ -1,6 +1,10 @@
 import { initializeApp, getApps, type FirebaseApp } from "firebase/app";
 import { getAuth, type Auth } from "firebase/auth";
+<<<<<<< HEAD
 import { getFirestore, type Firestore } from "firebase/firestore";
+=======
+import { getFirestore, type Firestore, enableMultiTabIndexedDbPersistence } from "firebase/firestore";
+>>>>>>> master
 
 /**
  * Firebase config is read from Vite env vars (VITE_FIREBASE_*).
@@ -42,6 +46,22 @@ export function getFirebase() {
     _app = getApps().length ? getApps()[0]! : initializeApp(firebaseConfig);
     _auth = getAuth(_app);
     _db = getFirestore(_app);
+<<<<<<< HEAD
+=======
+
+    // Enable persistence for cost reduction and offline support
+    if (typeof window !== "undefined") {
+      enableMultiTabIndexedDbPersistence(_db).catch((err) => {
+        if (err.code === "failed-precondition") {
+          // Multiple tabs open, persistence can only be enabled in one tab at a time.
+          console.warn("Firestore persistence failed: multiple tabs open");
+        } else if (err.code === "unimplemented") {
+          // The current browser doesn't support all of the features required to enable persistence
+          console.warn("Firestore persistence is not supported by this browser");
+        }
+      });
+    }
+>>>>>>> master
   }
   return { app: _app, auth: _auth!, db: _db! };
 }
