@@ -23,10 +23,6 @@ export function ProductCard({ product }: { product: Product }) {
             No image
           </div>
         )}
-<<<<<<< HEAD
-        <div className="absolute top-3 left-3 bg-background/90 backdrop-blur px-3 py-1 rounded-full text-[10px] uppercase tracking-widest text-foreground/80">
-          {product.category}
-=======
         <div className="absolute top-3 left-3 flex flex-wrap gap-2">
           <div className="bg-background/90 backdrop-blur px-3 py-1 rounded-full text-[10px] uppercase tracking-widest text-foreground/80">
             {product.category}
@@ -36,7 +32,7 @@ export function ProductCard({ product }: { product: Product }) {
               Sold Out
             </div>
           )}
->>>>>>> master
+
         </div>
       </div>
       <div className="p-5 flex flex-col justify-between flex-1">

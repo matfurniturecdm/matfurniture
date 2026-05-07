@@ -1,8 +1,5 @@
-<<<<<<< HEAD
-import { useEffect, useState } from "react";
-=======
 import { useEffect, useState, useRef } from "react";
->>>>>>> master
+
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ArrowRight } from "lucide-react";
 import { Link } from "@tanstack/react-router";
@@ -15,13 +12,11 @@ export function AnnouncementBanner() {
   const [announcement, setAnnouncement] = useState<Announcement | null>(null);
   const [dismissed, setDismissed] = useState(false);
   const [visible, setVisible] = useState(false);
-<<<<<<< HEAD
-=======
   const [shouldScroll, setShouldScroll] = useState(false);
   
   const containerRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
->>>>>>> master
+
 
   // Fetch active announcement on mount (client-only)
   useEffect(() => {
@@ -38,8 +33,6 @@ export function AnnouncementBanner() {
     setVisible(false);
   }, [announcement, dismissed]);
 
-<<<<<<< HEAD
-=======
   // Check for overflow to determine if scrolling is needed
   useEffect(() => {
     if (visible && containerRef.current && textRef.current) {
@@ -56,7 +49,6 @@ export function AnnouncementBanner() {
     }
   }, [visible, announcement]);
 
->>>>>>> master
   const handleDismiss = () => {
     setDismissed(true);
   };
@@ -67,8 +59,6 @@ export function AnnouncementBanner() {
   // Determine if link is internal (starts with /) or external
   const isInternal = announcement.link?.startsWith("/");
 
-<<<<<<< HEAD
-=======
   const CTA = () => {
     if (!announcement.link) return null;
     const commonClass = "inline-flex shrink-0 items-center gap-1 text-[10px] md:text-xs font-bold uppercase tracking-wider text-charcoal/80 hover:text-charcoal underline underline-offset-2 transition ml-2";
@@ -87,7 +77,6 @@ export function AnnouncementBanner() {
     );
   };
 
->>>>>>> master
   return (
     <AnimatePresence>
       {visible && (
@@ -98,36 +87,6 @@ export function AnnouncementBanner() {
           transition={{ duration: 0.4, ease: [0.2, 0.7, 0.2, 1] }}
           className="relative z-50 w-full bg-gold-grad overflow-hidden"
         >
-<<<<<<< HEAD
-          <div className="mx-auto flex max-w-7xl items-center justify-center gap-3 px-8 py-1.5 md:py-2">
-            {/* Message */}
-            <p className="text-xs md:text-sm font-medium text-charcoal text-center leading-tight truncate">
-              {announcement.message}
-            </p>
-
-            {/* CTA */}
-            {announcement.link && (
-              <>
-                {isInternal ? (
-                  <Link
-                    to={announcement.link}
-                    className="hidden sm:inline-flex shrink-0 items-center gap-1 text-xs font-bold uppercase tracking-wider text-charcoal/80 hover:text-charcoal underline underline-offset-2 transition"
-                  >
-                    Explore <ArrowRight size={10} />
-                  </Link>
-                ) : (
-                  <a
-                    href={announcement.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hidden sm:inline-flex shrink-0 items-center gap-1 text-xs font-bold uppercase tracking-wider text-charcoal/80 hover:text-charcoal underline underline-offset-2 transition"
-                  >
-                    Explore <ArrowRight size={10} />
-                  </a>
-                )}
-              </>
-            )}
-=======
           <div className="mx-auto flex max-w-7xl items-center justify-center gap-2 px-10 py-1.5 md:py-2">
             {/* Message */}
             {/* Message with Marquee effect */}
@@ -158,7 +117,7 @@ export function AnnouncementBanner() {
                 )}
               </motion.div>
             </div>
->>>>>>> master
+
 
             {/* Close */}
             <button

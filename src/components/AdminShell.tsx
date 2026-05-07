@@ -1,9 +1,6 @@
 import { Link, useNavigate } from "@tanstack/react-router";
-<<<<<<< HEAD
-import { LogOut, Plus, Megaphone, Images, Tags } from "lucide-react";
-=======
 import { LogOut, Plus, Megaphone, Images, Tags, Star } from "lucide-react";
->>>>>>> master
+
 import { signOut, useAuthUser } from "@/lib/auth";
 import { useEffect, type ReactNode } from "react";
 
@@ -59,15 +56,14 @@ export function AdminShell({
               <Tags size={14} /> Offers
             </Link>
             <Link
-<<<<<<< HEAD
-=======
+            <Link
               to="/admin/testimonials"
               className="hidden lg:inline-flex items-center gap-2 rounded-full border border-ivory/20 text-ivory/80 text-sm font-medium px-4 py-2 hover:border-accent hover:text-accent transition"
             >
               <Star size={14} /> Testimonials
             </Link>
             <Link
->>>>>>> master
+
               to="/admin/add-product"
               className="hidden sm:inline-flex items-center gap-2 rounded-full bg-gold-grad text-charcoal text-sm font-medium px-4 py-2"
             >

@@ -1,9 +1,6 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
-<<<<<<< HEAD
-import { useEffect, useMemo, useState } from "react";
-=======
 import { useEffect, useMemo, useState, useRef } from "react";
->>>>>>> master
+
 import { Search } from "lucide-react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
@@ -37,11 +34,9 @@ function ProductsPage() {
   const { category = "", q = "" } = Route.useSearch();
   const navigate = useNavigate({ from: "/products" });
   const [items, setItems] = useState<Product[] | null>(null);
-<<<<<<< HEAD
-=======
   const resultsRef = useRef<HTMLDivElement>(null);
   const isFirstRender = useRef(true);
->>>>>>> master
+
 
   useEffect(() => {
     listProducts()
@@ -49,8 +44,6 @@ function ProductsPage() {
       .catch(() => setItems([]));
   }, []);
 
-<<<<<<< HEAD
-=======
   useEffect(() => {
     if (isFirstRender.current) {
       isFirstRender.current = false;
@@ -72,7 +65,6 @@ function ProductsPage() {
     }
   }, [category]);
 
->>>>>>> master
   const filtered = useMemo(() => {
     if (!items) return null;
     return items.filter((p) => {
@@ -114,26 +106,6 @@ function ProductsPage() {
           </div>
         </section>
 
-<<<<<<< HEAD
-        <section className="py-10">
-          <div className="mx-auto max-w-7xl px-6">
-            <div className="flex flex-wrap gap-2 justify-center">
-              <Pill
-                active={!category}
-                onClick={() => navigate({ search: (p: Search) => ({ ...p, category: "" }) })}
-              >
-                All
-              </Pill>
-              {CATEGORIES.map((c) => (
-                <Pill
-                  key={c}
-                  active={category === c}
-                  onClick={() => navigate({ search: (p: Search) => ({ ...p, category: c }) })}
-                >
-                  {c}
-                </Pill>
-              ))}
-=======
         <section className="py-10" ref={resultsRef}>
           <div className="mx-auto max-w-7xl px-6">
             <div className="relative">
@@ -158,7 +130,7 @@ function ProductsPage() {
                   </div>
                 ))}
               </div>
->>>>>>> master
+
             </div>
 
             <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">

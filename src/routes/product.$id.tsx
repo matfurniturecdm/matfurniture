@@ -172,11 +172,6 @@ function ProductDetail() {
             </div>
 
             <div>
-<<<<<<< HEAD
-              <span className="text-xs uppercase tracking-[0.3em] text-accent">
-                {product.category}
-              </span>
-=======
               <div className="flex items-center gap-3">
                 <span className="text-xs uppercase tracking-[0.3em] text-accent">
                   {product.category}
@@ -187,7 +182,7 @@ function ProductDetail() {
                   </span>
                 )}
               </div>
->>>>>>> master
+
               <h1 className="mt-3 font-display text-4xl md:text-5xl">{product.name}</h1>
               {product.price != null && (
                 <p className="mt-4 text-2xl text-foreground/80">
@@ -199,16 +194,6 @@ function ProductDetail() {
                 {product.description}
               </p>
 
-<<<<<<< HEAD
-              <a
-                href={buildWhatsAppUrl(`Hi! I want to get a quote for ${product.name}.\n\nURL: https://matfurniture.in/product/${product.id}`)}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-10 inline-flex items-center gap-2 rounded-full bg-primary px-8 py-4 text-sm font-medium text-primary-foreground hover:bg-primary/90 transition shadow-soft"
-              >
-                <MessageCircle size={16} /> Get Quote
-              </a>
-=======
               {product.isSoldOut ? (
                 <div className="mt-10 inline-flex items-center gap-2 rounded-full bg-ivory/10 px-8 py-4 text-sm font-medium text-ivory/40 cursor-not-allowed border border-ivory/10 shadow-inner">
                   <MessageCircle size={16} /> Sold Out
@@ -223,7 +208,7 @@ function ProductDetail() {
                   <MessageCircle size={16} /> Get Quote
                 </a>
               )}
->>>>>>> master
+
             </div>
           </div>
 

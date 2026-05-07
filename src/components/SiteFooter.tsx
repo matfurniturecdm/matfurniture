@@ -16,25 +16,13 @@ export function SiteFooter() {
         <div>
           <h4 className="text-sm uppercase tracking-widest text-accent">Visit Us</h4>
           <p className="mt-4 text-sm leading-relaxed text-ivory/80">
-<<<<<<< HEAD
-            <strong>Head Office :</strong><br/> M.A.T.Complex,50, S.P Kovil Street<br />
+            <strong>Head Office :</strong><br/> M.A.T.Complex, 50, S.P Kovil Street<br />
             Chidambaram, Tamil Nadu<br />
             India <br/> 9385877457 <br/><br/>
             <strong>Branch Office :</strong><br/> 83/11, Reddiyar Road<br />
             Kattumannarkoil, Tamil Nadu<br />
             India <br/> 9363187478
-=======
-            <strong>Head Office :</strong><br />
-            50, S.P Kovil Street<br />
-            Chidambaram, Tamil Nadu<br />
-            India
-          </p>
-          <p className="mt-4 text-sm leading-relaxed text-ivory/80">
-            <strong>Branch Office :</strong><br />
-            83/11, Reddiyar Road<br />
-            Kattumannarkoil, Tamil Nadu<br />
-            India
->>>>>>> master
+
           </p>
         </div>
         <div>
