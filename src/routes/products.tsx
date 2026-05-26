@@ -1,5 +1,6 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useEffect, useMemo, useState, useRef } from "react";
+import { SEO } from "@/components/SEO";
 
 import { Search } from "lucide-react";
 import { SiteHeader } from "@/components/SiteHeader";
@@ -36,6 +37,22 @@ function ProductsPage() {
   const [items, setItems] = useState<Product[] | null>(null);
   const resultsRef = useRef<HTMLDivElement>(null);
   const isFirstRender = useRef(true);
+
+  const seoTitle = category 
+    ? `${category} — Premium Furniture Collection` 
+    : q 
+      ? `Search results for "${q}" — M.A.T. Furniture` 
+      : "Furniture Collection — Chidambaram & Kattumannarkoil Showroom";
+
+  const seoDesc = category 
+    ? `Explore our premium ${category} range at M.A.T. Furniture in Chidambaram and Kattumannarkoil. Exquisite craftsmanship, 1-year warranty, and easy EMI plans.` 
+    : "Browse our premium furniture collection including high-quality wooden cots, luxury sofas, spacious wardrobes, elegant dining tables, office furniture, TV units & more at M.A.T. Furniture.";
+
+  const seoKeywords = category 
+    ? `${category.toLowerCase()}, buy ${category.toLowerCase()} online, premium ${category.toLowerCase()} Chidambaram, MAT Furniture`
+    : "furniture collection, wooden cot price, buy sofa set, luxury wardrobe, office furniture Chidambaram, dining table Kattumannarkoil";
+
+  const seoUrl = `/products${category ? `?category=${encodeURIComponent(category)}` : ""}`;
 
 
   useEffect(() => {
@@ -77,6 +94,7 @@ function ProductsPage() {
 
   return (
     <div className="min-h-screen flex flex-col bg-background">
+      <SEO title={seoTitle} description={seoDesc} keywords={seoKeywords} url={seoUrl} />
       <ConfigBanner />
       <AnnouncementBanner />
       <SiteHeader />

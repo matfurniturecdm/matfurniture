@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { SEO } from "@/components/SEO";
 import { motion } from "framer-motion";
 import { MapPin, Phone, Clock, MessageCircle, Send } from "lucide-react";
 import { SiteHeader } from "@/components/SiteHeader";
@@ -33,6 +34,12 @@ function ContactPage() {
 
   return (
     <div className="min-h-screen flex flex-col bg-background overflow-hidden">
+      <SEO 
+        title="Contact & Showroom Locations"
+        description="Visit M.A.T. Furniture showrooms in Chidambaram and Kattumannarkoil, Tamil Nadu. Find store addresses, contact phone number (+91 9385877457), opening hours, and locate us on Google Maps."
+        keywords="contact mat furniture, furniture store Chidambaram location, Kattumannarkoil furniture shop map, telephone number MAT furniture, business hours"
+        url="/contact"
+      />
       <SiteHeader />
       <main className="flex-1">
         {/* 1. Floating Header */}

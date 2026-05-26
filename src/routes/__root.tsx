@@ -1,5 +1,6 @@
 import { Outlet, Link, createRootRoute, HeadContent, Scripts, useRouterState } from "@tanstack/react-router";
 import { Toaster } from "sonner";
+import { SEO } from "@/components/SEO";
 import appCss from "../styles.css?url";
 
 function NotFoundComponent() {
@@ -120,6 +121,7 @@ function RootComponent() {
   
   return (
     <>
+      <SEO schema={[localBusinessSchema, websiteSchema]} />
       {isNavigating && <div className="route-loading-bar" />}
       <Outlet />
       <Toaster position="top-center" richColors />

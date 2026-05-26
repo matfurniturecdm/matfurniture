@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
+import { SEO } from "@/components/SEO";
 import { motion } from "framer-motion";
 import {
   ArrowRight,
@@ -59,6 +60,12 @@ export const Route = createFileRoute("/")({
 function Index() {
   return (
     <div className="min-h-screen flex flex-col bg-background">
+      <SEO 
+        title="M.A.T. Furniture Showroom — Premium Furniture in Chidambaram & Kattumannarkoil"
+        description="M.A.T. Furniture is the best furniture showroom in Chidambaram & Kattumannarkoil, Tamil Nadu. Premium Kerala-manufactured wooden cots, luxury sofas, durable wardrobes, and elegant dining sets with standard 1-year warranty and flexible EMI options."
+        keywords="furniture showroom Chidambaram, furniture store Kattumannarkoil, wooden cot Chidambaram, luxury sofa sets, wardrobes Kattumannarkoil, Kerala wood furniture, dining table Tamil Nadu, MAT Furniture, flexible EMI furniture"
+        url="/"
+      />
       <ConfigBanner />
       <AnnouncementBanner />
       <SiteHeader />

@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { SEO } from "@/components/SEO";
 import { motion } from "framer-motion";
 import {
   ArrowRight,
@@ -35,6 +36,12 @@ export const Route = createFileRoute("/about")({
 function AboutPage() {
   return (
     <div className="min-h-screen flex flex-col bg-background overflow-hidden">
+      <SEO 
+        title="Our Story & Manufacturing Excellence"
+        description="Learn about M.A.T. Furniture's decade-long wholesale legacy and retail showrooms in Chidambaram and Kattumannarkoil, Tamil Nadu. Premium wooden furniture crafted in Kerala with 1-year warranty."
+        keywords="about mat furniture, furniture manufacturing, Kerala teak wood, furniture showrooms, standard 1-year warranty"
+        url="/about"
+      />
       <SiteHeader />
       <main className="flex-1">
         {/* 1. Floating Hero Section */}

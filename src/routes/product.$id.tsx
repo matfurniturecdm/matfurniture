@@ -1,5 +1,6 @@
 import { createFileRoute, Link, useRouter } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
+import { SEO } from "@/components/SEO";
 import { ArrowLeft, ChevronRight, MessageCircle, CreditCard } from "lucide-react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
@@ -104,8 +105,42 @@ function ProductDetail() {
   const images = product.images?.length ? product.images : [];
   const mainImg = images[active];
 
+  const productSchema = product ? {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": product.name,
+    "image": product.images || [],
+    "description": product.description,
+    "sku": product.id,
+    "brand": {
+      "@type": "Brand",
+      "name": "M.A.T. Furniture"
+    },
+    "offers": {
+      "@type": "Offer",
+      "url": `https://matfurniture.in/product/${product.id}`,
+      "priceCurrency": "INR",
+      "price": product.price || 0,
+      "priceValidUntil": "2027-12-31",
+      "itemCondition": "https://schema.org/NewCondition",
+      "availability": product.isSoldOut ? "https://schema.org/OutOfStock" : "https://schema.org/InStock",
+      "seller": {
+        "@type": "FurnitureStore",
+        "name": "M.A.T. Furniture"
+      }
+    }
+  } : undefined;
+
   return (
     <div className="min-h-screen flex flex-col bg-background">
+      <SEO 
+        title={`${product.name} — Premium ${product.category}`}
+        description={`${product.description.substring(0, 160)}${product.description.length > 160 ? '...' : ''} Available at M.A.T. Furniture showroom in Chidambaram and Kattumannarkoil, Tamil Nadu.`}
+        keywords={`${product.name}, ${product.category}, premium furniture, wood cot, modern sofa, MAT Furniture Chidambaram`}
+        image={product.images?.[0]}
+        url={`/product/${product.id}`}
+        schema={productSchema}
+      />
       <ConfigBanner />
       <SiteHeader />
       <main className="flex-1 py-12 md:py-16">

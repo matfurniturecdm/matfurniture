@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
+import { SEO } from "@/components/SEO";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight, X, Tags } from "lucide-react";
 import { SiteHeader } from "@/components/SiteHeader";
@@ -59,6 +60,12 @@ function OffersPage() {
 
   return (
     <div className="min-h-screen flex flex-col bg-background">
+      <SEO 
+        title="Special Offers & Furniture Deals"
+        description="Save big with our latest discount offers, seasonal package sales, and festive deals on premium wooden cots, wardrobes, and luxury sofas at M.A.T. Furniture showroom."
+        keywords="furniture offers Chidambaram, discount cot price, sofa deal Kattumannarkoil, festive sale MAT furniture, EMI discount"
+        url="/offers"
+      />
       <SiteHeader />
       <main className="flex-1">
         {/* Header */}

@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
+import { SEO } from "@/components/SEO";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import { SiteHeader } from "@/components/SiteHeader";
@@ -57,6 +58,12 @@ function GalleryPage() {
 
   return (
     <div className="min-h-screen flex flex-col bg-background">
+      <SEO 
+        title="Showroom Gallery & Real Client Homes"
+        description="Take a high-definition virtual tour of M.A.T. Furniture's showrooms in Chidambaram and Kattumannarkoil, Tamil Nadu. Browse actual photos of premium teak and mahogany furniture."
+        keywords="showroom photos, wooden cot design gallery, sofa collection photos, solid wood furniture pictures, MAT furniture gallery"
+        url="/gallery"
+      />
       <SiteHeader />
       <main className="flex-1">
         {/* Header */}
